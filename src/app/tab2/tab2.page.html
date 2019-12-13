@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar  color="primary">
+    <ion-title>
+      Register New Post
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="stacked">Your message:</ion-label>
+        <ion-input [(ngModel)]="p.message" name="message">
+            
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Image Url</ion-label>
+        <ion-input [(ngModel)]="p.imageUrl" name="image"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Event Date</ion-label>
+        <ion-datetime displayFormat="MM DD YY" placeholder="Select Date"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="stacked">To:</ion-label>
+          <ion-select [(ngModel)]="p.to" name="to">
+            <ion-select-option value="Everyone">Everyone</ion-select-option>
+            <ion-select-option *ngFor="let friend of friendsToDisplay" [value]="friend.name">{{friend.name}}</ion-select-option>
+          </ion-select>
+          </ion-item>
+
+      <ion-item>
+        <ion-button (click)="post()" expand="block" size="medium" color="primary">Submit Post</ion-button>
+      </ion-item>
+
+</ion-content>

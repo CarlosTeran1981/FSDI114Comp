@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Register Friends
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<!-- register new friends -->
+
+<h3>Register New Friend</h3>
+
+<!-- Searchbar with cancel button always shown -->
+<ion-searchbar showCancelButton="always">Search for friend</ion-searchbar>
+
+
+<ion-card>
+  <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input [(ngModel)]="model.name" name="userName"></ion-input>
+  </ion-item>
+</ion-card>
+
+<ion-button (click)="register()" expand="block" color="primary">Register Friend</ion-button>
+
+<!-- list existing friends -->
+
+<hr>  
+
+<ion-list>
+
+  <ion-item-sliding *ngFor="let friend of friendsToDisplay">
+    <ion-item>
+      <ion-label>{{friend.name }}</ion-label>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="unfriend(friend)">Unfriend</ion-item-option>
+    </ion-item-options>    
+  </ion-item-sliding>
+
+</ion-list>
+
+</ion-content>
+
